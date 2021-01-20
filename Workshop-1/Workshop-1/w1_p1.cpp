@@ -92,7 +92,7 @@ int main(int argc, char* argv[]) {
 					currentEvent.set(buffer);
 					break;
 				case 'E': // end the current event
-					currentEvent.set(nullptr);
+					currentEvent.set();
 					break;
 				case 'P': // print to scren the information about the current event
 					currentEvent.display();
