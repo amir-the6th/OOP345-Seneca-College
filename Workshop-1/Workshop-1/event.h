@@ -22,6 +22,7 @@ namespace sdds {
 	class Event {
 		char* e_desc; //the description of the event
 		unsigned int e_startTime; //the time when the event starts (seconds) - between 0 to 86400
+		void setEmpty(); //reset to empty state
 	public:
 		Event();
 		Event(const Event& cpEvent);

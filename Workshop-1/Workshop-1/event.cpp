@@ -22,6 +22,11 @@ unsigned int g_sysClock = 0;
 char empty[] = { '\0' };
 
 namespace sdds {
+	void Event::setEmpty() {
+		e_startTime = 0;
+		delete[] e_desc;
+		e_desc = nullptr;
+	}
 	Event::Event() : e_desc(nullptr), e_startTime(0) {
 	}
 	Event::Event(const Event& cpEvent) {
@@ -29,8 +34,7 @@ namespace sdds {
 		*this = cpEvent;
 	}
 	Event::~Event() {
-		delete[] e_desc;
-		e_desc = nullptr;
+		setEmpty();
 	}
 	Event& Event::operator=(const Event& cpEvent) {
 		if (cpEvent.e_desc != nullptr) {
@@ -41,9 +45,7 @@ namespace sdds {
 			strcpy(e_desc, cpEvent.e_desc);
 		}
 		else {
-			e_startTime = 0;
-			delete[] e_desc;
-			e_desc = nullptr;
+			setEmpty();
 		}
 		return *this;
 	}
@@ -53,14 +55,14 @@ namespace sdds {
 			min = ((e_startTime % 3600) / 60),
 			sec = ((e_startTime % 3600) % 60);
 		if (e_desc[0] != '\0') {
-			std::cout << counter << ". " 
+			std::cout << std::setw(2) << std::setfill(' ') << counter << ". "
 				<< std::setw(2) << std::setfill('0') << hour << ':' 
 				<< std::setw(2) << std::setfill('0') << min << ':'
 				<< std::setw(2) << std::setfill('0') << sec << " => "
 				<< e_desc << std::endl;
 		}
 		else {
-			std::cout << counter << ". | No Event |" << std::endl;
+			std::cout << std::setw(2) << std::setfill(' ') << counter << ". | No Event |" << std::endl;
 		}
 		counter++;
 	}
@@ -73,9 +75,7 @@ namespace sdds {
 			strcpy(e_desc, newEvent);
 		}
 		else {
-			e_startTime = 0;
-			delete[] e_desc;
-			e_desc = nullptr;
+			setEmpty();
 		}
 	}
 }
