@@ -36,7 +36,7 @@ namespace sdds {
 			*this = temp;
 			return *this;
 		}
-		void display(std::ostream& os) const {
+		virtual void display(std::ostream& os) const {
 			os << std::left << std::setw(ps_minWidth);
 			Pair<V, K>::display(os);
 			os << std::right;
