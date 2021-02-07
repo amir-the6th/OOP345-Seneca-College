@@ -16,7 +16,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="sales.txt" />
-    <Text Include="sample_output.txt" />
+    <Text Include="sample_output-p2.txt" />
+    <Text Include="products.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="w3_p2.cpp">
