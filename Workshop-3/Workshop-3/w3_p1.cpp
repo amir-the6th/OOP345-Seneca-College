@@ -13,7 +13,6 @@
 #include "Set.h"
 #include "Pair.h"
 
-
 int main(int argc, char* argv[])
 {
 	std::cout << "Command Line:\n";
