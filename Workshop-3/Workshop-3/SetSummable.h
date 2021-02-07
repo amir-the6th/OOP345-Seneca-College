@@ -23,7 +23,7 @@ namespace sdds {
 		T accumulate(const std::string& filter) const {
 			T obj(filter);
 			for (size_t i = 0u; i < this->size(); i++) {
-				if (this->get(i).isCompatibleWith(obj)) {
+				if (obj.isCompatibleWith(this->get(i))) {
 					obj += this->get(i);
 				}
 			}
