@@ -1,0 +1,19 @@
+/********************************************
+///    Name:        Amirhossein Sabagh    ///
+///    Student#:    152956199             ///
+///    Email:       asabagh@myseneca.ca   ///
+///    Date:        2021-02-07            ///
+|*******************************************|
+|********  Workshop 3 - Reflection  ********|
+|*******************************************|
+|   I have done all the coding by myself    |
+|     and only copied the code that my      |
+|     professor provided to complete my     |
+|        workshops and assignments.         |
+********************************************/
+
+
+Explain in the reflection why we do not split a module into *.h and *.cpp like you did in the previous workshops.
+
+
+Explain in the reflection what = initial in the prototype means
