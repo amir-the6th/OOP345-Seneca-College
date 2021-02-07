@@ -30,7 +30,7 @@ namespace sdds {
 		const K& key() const {
 			return p_key;
 		}	//returns the key component of the pair
-		void display(std::ostream& os) const {
+		virtual void display(std::ostream& os) const {
 			os << p_key << " : " << p_value << std::endl;
 		}	//inserts into stream os the key and the value of the pair
 	};
