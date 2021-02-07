@@ -139,8 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="products.txt" />
     <Text Include="sales.txt" />
-    <Text Include="sample_output.txt" />
+    <Text Include="sample_output-p2.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="w3_p2.cpp" />
