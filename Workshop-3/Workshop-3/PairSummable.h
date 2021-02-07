@@ -26,7 +26,7 @@ namespace sdds {
 		PairSummable() {}
 		PairSummable(const K& key, const V& value = ps_init) : Pair<V, K>(key, value) {
 			size_t objSize = key.size();
-			//if (objSize > ps_minWidth) ps_minWidth = objSize;
+			if (objSize > ps_minWidth) ps_minWidth = objSize;
 		}
 		bool isCompatibleWith(const PairSummable<V, K>& b) const {
 			return this->key() == b.key() ? 1 : 0;
