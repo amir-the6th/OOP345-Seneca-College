@@ -50,7 +50,7 @@ namespace sdds {
 	std::string PairSummable<std::string, std::string>::ps_init = "";
 
 	template<> 
-	int PairSummable<int, std::string>::ps_init = 0;
+	int PairSummable<int, std::string>::ps_init{ 0 };
 
 	template<>
 	PairSummable<std::string, std::string>& PairSummable<std::string, std::string>::operator+=(const PairSummable<std::string, std::string>& PS) {
