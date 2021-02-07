@@ -36,7 +36,7 @@ namespace sdds {
 	};
 	template<typename V, typename K>
 	std::ostream& operator<<(std::ostream& os, const Pair<V, K>& pair) {
-		pair.display();
+		pair.display(os);
 		return os;
 	}	//calls the member function display() on pair to insert a pair into stream os
 }
