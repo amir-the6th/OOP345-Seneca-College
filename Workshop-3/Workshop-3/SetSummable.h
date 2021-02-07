@@ -14,7 +14,6 @@
 
 #ifndef SDDS_SETSUMMABLE_H
 #define SDDS_SETSUMMABLE_H
-#include <iostream>
 #include "Set.h"
 
 namespace sdds {
