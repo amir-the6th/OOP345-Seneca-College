@@ -15,8 +15,8 @@
 #ifndef SDDS_PAIRSUMMABLE_H
 #define SDDS_PAIRSUMMABLE_H
 #include <iostream>
-
 #include "Pair.h"
+
 namespace sdds {
 	template<typename V, typename K>  //the type of the value & the type of the key, respectively
 	class PairSummable : public Pair<V, K> {
@@ -24,17 +24,17 @@ namespace sdds {
 		static size_t ps_minWidth;
 	public:
 		PairSummable() {}
-		PairSummable(const K& key, const V& value = initial) : Pair<V, K>(key, value) {
+		PairSummable(const K& key, const V& value = ps_init) : Pair<V, K>(key, value) {
 			size_t objSize = key.size();
 			//if (objSize > ps_minWidth) ps_minWidth = objSize;
 		}
 		bool isCompatibleWith(const PairSummable<V, K>& b) const {
-			return bool compatibleKey = this->key() == b.key() ? 1 : 0;
+			return this->key() == b.key() ? 1 : 0;
 		}
 		PairSummable<V, K>& operator+=(const PairSummable<V, K>& PS) {
-			/*PairSummable temp(this->key(), this->value() + PS.value());
-			*this = temp;*/
-			this->value() =	 this->value() + PS.value();
+			PairSummable temp(this->key(), this->value() + PS.value());
+			*this = temp;
+			//this->value() =	 this->value() + PS.value();
 			return *this;
 		}
 		void display(std::ostream& os) const {
