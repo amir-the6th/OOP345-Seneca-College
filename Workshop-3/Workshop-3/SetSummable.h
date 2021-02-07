@@ -19,6 +19,17 @@
 
 namespace sdds {
 	template <unsigned N, class T> //the capacity of the collection and type of the elements in the array, respectively
-	class SetSummable : public Set<N, T>
+	class SetSummable : public Set<N, T> {
+	public:
+		T accumulate(const std::string& filter) const {
+			T obj(filter);
+			for (size_t i = 0u; i < this->size(); i++) {
+				if (this->get(i).isCompatibleWith(obj)) {
+					obj += this->get(i);
+				}
+			}
+			return obj;
+		}
+	};
 }
 #endif
