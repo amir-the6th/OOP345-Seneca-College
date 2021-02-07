@@ -143,13 +143,13 @@
     <Text Include="sample_output.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="w3_p1.cpp" />
     <ClCompile Include="w3_p2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pair.h" />
     <ClInclude Include="PairSummable.h" />
     <ClInclude Include="Set.h" />
+    <ClInclude Include="SetSummable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
