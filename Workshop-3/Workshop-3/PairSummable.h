@@ -34,7 +34,6 @@ namespace sdds {
 		PairSummable<V, K>& operator+=(const PairSummable<V, K>& PS) {
 			PairSummable temp(this->key(), this->value() + PS.value());
 			*this = temp;
-			//this->value() =	 this->value() + PS.value();
 			return *this;
 		}
 		void display(std::ostream& os) const {
@@ -49,6 +48,9 @@ namespace sdds {
 
 	template<>
 	std::string PairSummable<std::string, std::string>::ps_init = "";
+
+	template<> 
+	int PairSummable<int, std::string>::ps_init = 0;
 
 	template<>
 	PairSummable<std::string, std::string>& PairSummable<std::string, std::string>::operator+=(const PairSummable<std::string, std::string>& PS) {
