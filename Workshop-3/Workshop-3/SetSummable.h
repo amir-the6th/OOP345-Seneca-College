@@ -28,7 +28,7 @@ namespace sdds {
 				}
 			}
 			return obj;
-		}
+		} //accumulates into a local object of type T the subset of all the elements in the collection that satisfy "filter"
 	};
 }
 #endif
