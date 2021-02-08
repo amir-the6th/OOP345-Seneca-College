@@ -12,8 +12,10 @@
 |        workshops and assignments.         |
 ********************************************/
 
+When dealing with templates in C++, they need to be instantiated by the compiler before actually compiling them into object code, and therefore we should implement templates only in the header file. The reason for that is when we instantiate a template, the compiler creates a new class and that class contains all the places where we replaced the template argument with the actual type argument. C++ does this automatically and to compile the program successfully, the compiler needs to have access to the implementation of those classes before encountering the code that uses template arguments; that's why we implement templates in the header file and not in the implementation file.
+We specialized the operator+=() member function to design an exception for the program when the type of both K and V is std::string. That happened in the "Collated Index Entries" section where we concatenated the values and separated them using the ", " as a separator.
+We specified the default value ps_init(initial) for the value parameter of type V in the "PairSummable(const K& key, const V& value = initial);" prototype; the reason for that is to acknowledge the times when we call the PairSummable constructor without the second argument. An example of this matter happens in my code in the SetSummable module in the accumulate member function where we instantiate an object of type T and pass the string that acts as a filter to the PairSummable class. From that, we were able to compare the values with each other and check their compatibility.
+We didn't specialize the initial value for the summation because we didn't occur a situation in where we wanted to accept a pointer to some types(like const char*). Our template definition successfully addresses all the fundamental types and it wasn't needed to also consider a pointer variable.
+The reason behind defining a class variable outside the class definition is to, simply put, respect the One Definition Rule. In the compilation process, a class definition gets included in multiple translation units. Also when dealing with templates, the compiler creates a new class for every new type that we have passed in. So, if we define the static objects in the class definition, we will have several copies and definitions of it; and that violates the ODR. We avoid this happening by defining our class variable outside the definition.
 
-Explain in the reflection why we do not split a module into *.h and *.cpp like you did in the previous workshops.
 
-
-Explain in the reflection what = initial in the prototype means
