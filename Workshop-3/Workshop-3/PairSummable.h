@@ -21,22 +21,22 @@
 namespace sdds {
 	template<typename V, typename K>  //the type of the value & the type of the key, respectively
 	class PairSummable : public Pair<V, K> {
-		static V ps_init;
-		static size_t ps_minWidth;
+		static V ps_init;	//initial value for a summation
+		static size_t ps_minWidth;	//minimum field width for pretty columnar output of key-value pairs
 	public:
-		PairSummable() {}
+		PairSummable() {}	//default constructor
 		PairSummable(const K& key, const V& value = ps_init) : Pair<V, K>(key, value) {
 			size_t objSize = key.size();
 			if (objSize > ps_minWidth) ps_minWidth = objSize;
-		}
+		}	//two-arguments constructor
 		bool isCompatibleWith(const PairSummable<V, K>& b) const {
 			return this->key() == b.key();
-		}
+		}	//returns true if the parameter has the same key as the current object, false otherwise.
 		PairSummable<V, K>& operator+=(const PairSummable<V, K>& PS) {
 			PairSummable temp(this->key(), this->value() + PS.value());
 			*this = temp;
 			return *this;
-		}
+		} //adds the value of the parameter object to the value of the current object
 		virtual void display(std::ostream& os) const {
 			os << std::left << std::setw(ps_minWidth);
 			Pair<V, K>::display(os);
@@ -57,6 +57,6 @@ namespace sdds {
 	PairSummable<std::string, std::string>& PairSummable<std::string, std::string>::operator+=(const PairSummable<std::string, std::string>& PS) {
 		*this = PairSummable(this->key(), this->value() != "" ? this->value() + ", " + PS.value() : PS.value());
 		return *this;
-	}
+	}	//should concatenate the values stored using ", " as a separator
 }
 #endif
