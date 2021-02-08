@@ -28,7 +28,7 @@ namespace sdds {
 		}	//returns a reference to the element at index idx of s_collection
 		void operator+=(const T& item) {
 			if (this->size() < N) {
-				s_collection[size()] = item;
+				s_collection[this->size()] = item;
 				elemsInCollection++;
 			}
 		}	//if the collection has capacity, adds a copy of item to the collection
