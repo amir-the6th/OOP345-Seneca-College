@@ -15,7 +15,7 @@
 #ifndef SDDS_SET_H
 #define SDDS_SET_H
 namespace sdds {
-	template <unsigned N, class T> //the capacity of the collection and type of the elements in the array, respectively
+	template <unsigned N, class T> //the capacity of the collection and type of the elements in the array, respectively 
 	class Set {
 		T s_collection[N];	//statically allocated array of any datatype
 		size_t elemsInCollection{ 0 };	//current number of elements in the collection
