@@ -16,7 +16,7 @@
 #define SDDS_PAIR_H
 #include <iostream>
 namespace sdds {
-	template<typename V, typename K> //the type of the value & the type of the key, respectively
+	template<typename V, typename K> //the type of the value & the type of the key, respectively 
 	class Pair {
 		V p_value;	//value component of the pair
 		K p_key;	//key component of the pair
