@@ -26,6 +26,7 @@ int main(int argc, char* argv[])
 		return 2;
 	}
 
+
 	// Process the parameter
 	// The values in this file will be interpreted as numbers
 	//     Sumation means mathematical addition of numbers.
