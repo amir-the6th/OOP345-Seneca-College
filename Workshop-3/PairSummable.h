@@ -58,5 +58,5 @@ namespace sdds {
 		*this = PairSummable(this->key(), this->value() != "" ? this->value() + ", " + PS.value() : PS.value());
 		return *this;
 	}	//should concatenate the values stored using ", " as a separator
-}
+} 
 #endif
