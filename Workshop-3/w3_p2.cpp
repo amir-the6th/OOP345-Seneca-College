@@ -14,7 +14,6 @@
 #include "SetSummable.h"
 #include "PairSummable.h"
 
-
 int main(int argc, char* argv[])
 {
 	std::cout << "Command Line:\n";
