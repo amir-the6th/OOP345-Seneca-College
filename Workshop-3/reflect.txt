@@ -19,3 +19,4 @@ We didn't specialize the initial value for the summation because we didn't occur
 The reason behind defining a class variable outside the class definition is to, simply put, respect the One Definition Rule. In the compilation process, a class definition gets included in multiple translation units. Also when dealing with templates, the compiler creates a new class for every new type that we have passed in. So, if we define the static objects in the class definition, we will have several copies and definitions of it; and that violates the ODR. We avoid this happening by defining our class variable outside the definition.
 
 
+
