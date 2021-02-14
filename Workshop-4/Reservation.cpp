@@ -15,6 +15,7 @@
 #include <iostream>
 #include <iomanip>
 #include "Reservation.h"
+using namespace std;
 
 namespace sdds {
 	Reservation::Reservation() : r_resID{ nullptr }, r_resName{ nullptr }, r_resEmail{ nullptr }, r_noOfPeople{ 0 }, r_day{ 1 }, r_hour{ 1 }{
@@ -64,6 +65,21 @@ namespace sdds {
 		r_hour = stoi(hour);
 	}
 	std::ostream& operator<<(std::ostream& os, const Reservation& RES) {
-		// TODO: insert return statement here
+		os << "Reservation " << right << setw(10) << RES.r_resID << ": " << setw(20) << RES.r_resName << "  " << left << setw(20) << '<' << RES.r_resEmail << '>' << "    ";
+		if (RES.r_hour >= 6 && RES.r_hour <= 9) {
+			os << "Breakfast";
+		}
+		else if (RES.r_hour >= 11 && RES.r_hour <= 15) {
+			os << "Lunch";
+		}
+		else if (RES.r_hour >= 17 && RES.r_hour <= 21) {
+			os << "Dinner";
+		}
+		else {
+			os << "Drinks";
+		}
+		os << " on day " << RES.r_day << " @ " << RES.r_hour << ":00 for " << RES.r_noOfPeople << (RES.r_noOfPeople == 1 ? " person." : " people.") << endl;
+
+		return os;
 	}
 }
