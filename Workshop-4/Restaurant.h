@@ -19,7 +19,7 @@
 
 namespace sdds {
 	class Restaurant {
-		Reservation* rs_restaurant;
+		Reservation* rs_res;
 		size_t rs_count;
 	public:
 		Restaurant(); //mandatory member function of class with resource: default constructor
