@@ -12,8 +12,8 @@
 |        workshops and assignments.         |
 ********************************************/
 
-#ifndef SDDS_SETSUMMABLE_H
-#define SDDS_SETSUMMABLE_H
+#ifndef SDDS_RESERVATION_H
+#define SDDS_RESERVATION_H
 #include <iostream>
 #include <string>
 
