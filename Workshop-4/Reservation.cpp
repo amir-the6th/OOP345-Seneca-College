@@ -65,7 +65,9 @@ namespace sdds {
 		r_hour = stoi(hour);
 	}
 	std::ostream& operator<<(std::ostream& os, const Reservation& RES) {
-		os << "Reservation " << right << setw(10) << RES.r_resID << ": " << setw(20) << RES.r_resName << "  " << left << setw(20) << '<' << RES.r_resEmail << '>' << "    ";
+		os << "Reservation " << right << setw(10) << RES.r_resID << ": " << setw(20) << RES.r_resName;
+		os << "  " << left << setw(20) << '<' + RES.r_resEmail + '>';
+		os << "    ";
 		if (RES.r_hour >= 6 && RES.r_hour <= 9) {
 			os << "Breakfast";
 		}
