@@ -16,16 +16,16 @@
 #include "Restaurant.h"
 
 namespace sdds {
-	Restaurant::Restaurant() : rs_restaurant{ nullptr }, rs_count{ 0 } {
+	Restaurant::Restaurant() : rs_res{ nullptr }, rs_count{ 0 } {
 	}
 	Restaurant::~Restaurant() {
-		delete[] rs_restaurant;
-		rs_restaurant = nullptr;
+		delete[] rs_res;
+		rs_res = nullptr;
 	}
 	Restaurant::Restaurant(const Reservation* reservations[], size_t cnt) {
-		rs_restaurant = new Reservation[cnt];
+		rs_res = new Reservation[cnt];
 		for (size_t i = 0; i < cnt; i++) {
-			rs_restaurant[i] = *reservations[i];
+			rs_res[i] = *reservations[i];
 		}
 		rs_count = cnt;
 	}
@@ -33,10 +33,10 @@ namespace sdds {
 		*this = src;
 	}
 	Restaurant& Restaurant::operator=(const Restaurant& src) {
-		if (src.rs_restaurant != nullptr) {
-			rs_restaurant = new Reservation[src.size() + 1];
+		if (src.rs_res != nullptr) {
+			rs_res = new Reservation[src.size() + 1];
 			for (size_t i = 0; i < src.rs_count; i++) {
-				rs_restaurant[i] = src.rs_restaurant[i];
+				rs_res[i] = src.rs_res[i];
 			}
 			rs_count = src.rs_count;
 		}
@@ -46,11 +46,11 @@ namespace sdds {
 		*this = std::move(src);
 	}
 	Restaurant& Restaurant::operator=(Restaurant&& src)noexcept {
-		if (src.rs_restaurant != nullptr) {
-			std::swap(rs_restaurant, src.rs_restaurant);
+		if (src.rs_res != nullptr) {
+			std::swap(rs_res, src.rs_res);
 			rs_count = src.rs_count;
 			src.rs_count = 0;
-			src.rs_restaurant = nullptr;
+			src.rs_res = nullptr;
 		}
 		return *this;
 	}
@@ -70,7 +70,7 @@ namespace sdds {
 		}
 		else {
 			for (size_t i = 0; i < RES.rs_count; i++) {
-				os << RES.rs_restaurant[i];
+				os << RES.rs_res[i];
 			}
 			os << "--------------------------" << std::endl;
 		}
