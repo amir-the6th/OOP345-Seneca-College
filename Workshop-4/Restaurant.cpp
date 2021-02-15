@@ -12,28 +12,31 @@
 |        workshops and assignments.         |
 ********************************************/
 
+#include<iostream>
 #include <algorithm>    // std::swap
 #include "Restaurant.h"
 
 namespace sdds {
-	Restaurant::Restaurant() : rs_res{ nullptr }, rs_count{ 0 } {
-	}
+	/*Restaurant::Restaurant() : rs_res{ nullptr }, rs_count{ 0 } {
+	}*/
 	Restaurant::~Restaurant() {
 		delete[] rs_res;
 		rs_res = nullptr;
 	}
 	Restaurant::Restaurant(const Reservation* reservations[], size_t cnt) {
-		rs_res = new Reservation[cnt];
-		for (size_t i = 0; i < cnt; i++) {
-			rs_res[i] = *reservations[i];
+		if (reservations != nullptr) {
+			rs_count = cnt;
+			rs_res = new Reservation[rs_count];
+			for (size_t i = 0; i < rs_count; i++) {
+				rs_res[i] = *reservations[i];
+			}
 		}
-		rs_count = cnt;
 	}
 	Restaurant::Restaurant(const Restaurant& src) {
 		*this = src;
 	}
 	Restaurant& Restaurant::operator=(const Restaurant& src) {
-		if (src.rs_res != nullptr) {
+		if (rs_res != nullptr) {
 			rs_res = new Reservation[src.size() + 1];
 			for (size_t i = 0; i < src.rs_count; i++) {
 				rs_res[i] = src.rs_res[i];
