@@ -26,9 +26,9 @@ namespace sdds {
 	Restaurant::Restaurant(const Reservation* reservations[], size_t cnt) {
 		if (reservations != nullptr) {
 			rs_count = cnt;
-			rs_res = new Reservation[rs_count];
+			this->rs_res = new Reservation[rs_count];
 			for (size_t i = 0; i < rs_count; i++) {
-				rs_res[i] = *reservations[i];
+				this->rs_res[i] = *reservations[i];
 			}
 		}
 	}
