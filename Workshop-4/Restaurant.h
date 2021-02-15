@@ -19,10 +19,11 @@
 
 namespace sdds {
 	class Restaurant {
-		Reservation* rs_res;
-		size_t rs_count;
+	protected:
+		Reservation* rs_res{};
+		size_t rs_count{};
 	public:
-		Restaurant(); //mandatory member function of class with resource: default constructor
+		Restaurant() {}; //default constructor
 		~Restaurant(); //mandatory member function of class with resource: destructor
 		Restaurant(const Reservation* reservations[], size_t cnt);
 		Restaurant(const Restaurant& src); //mandatory member function of class with resource: copy constructor
