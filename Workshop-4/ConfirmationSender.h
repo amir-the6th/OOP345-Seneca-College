@@ -29,8 +29,8 @@ namespace sdds {
 		ConfirmationSender(ConfirmationSender&& src)noexcept; //mandatory member function of class with resource: move constructor
 		ConfirmationSender& operator=(ConfirmationSender&& src)noexcept; //mandatory member function of class with resource: move-assignment operator
 		size_t size() const;
-		ConfirmationSender& operator+=(const Reservation& res);
-		ConfirmationSender& operator-=(const Reservation& res);
+		ConfirmationSender& operator+=(const Reservation& res); //adds the reservation res to the array by adding its address
+		ConfirmationSender& operator-=(const Reservation& res); //removes the reservation res from the array by removing its address
 		friend std::ostream& operator<<(std::ostream& os, const ConfirmationSender& CS);
 	};
 }
