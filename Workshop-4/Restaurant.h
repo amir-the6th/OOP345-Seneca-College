@@ -19,7 +19,6 @@
 
 namespace sdds {
 	class Restaurant {
-	protected:
 		Reservation* rs_res{};
 		size_t rs_count{};
 	public:
