@@ -49,8 +49,7 @@ namespace sdds {
 		}
 		return *this;
 	}
-	size_t ConfirmationSender::size() const
-	{
+	size_t ConfirmationSender::size() const {
 		return cs_count;
 	}
 	ConfirmationSender& ConfirmationSender::operator+=(const Reservation& res) {
