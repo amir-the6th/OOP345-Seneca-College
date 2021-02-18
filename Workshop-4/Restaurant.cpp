@@ -36,7 +36,7 @@ namespace sdds {
 		*this = src;
 	}
 	Restaurant& Restaurant::operator=(const Restaurant& src) {
-		if (rs_res != nullptr) {
+		if (this != &src) {
 			rs_res = new Reservation[src.size() + 1];
 			for (size_t i = 0; i < src.rs_count; i++) {
 				rs_res[i] = src.rs_res[i];
@@ -49,7 +49,7 @@ namespace sdds {
 		*this = std::move(src);
 	}
 	Restaurant& Restaurant::operator=(Restaurant&& src)noexcept {
-		if (src.rs_res != nullptr) {
+		if (this != &src) {
 			std::swap(rs_res, src.rs_res);
 			rs_count = src.rs_count;
 			src.rs_count = 0;
