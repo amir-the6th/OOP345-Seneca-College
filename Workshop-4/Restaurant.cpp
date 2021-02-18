@@ -17,8 +17,6 @@
 #include "Restaurant.h"
 
 namespace sdds {
-	/*Restaurant::Restaurant() : rs_res{ nullptr }, rs_count{ 0 } {
-	}*/
 	Restaurant::~Restaurant() {
 		delete[] rs_res;
 		rs_res = nullptr;
