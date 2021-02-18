@@ -16,8 +16,6 @@
 #include "ConfirmationSender.h"
 
 namespace sdds {
-	ConfirmationSender::ConfirmationSender() : cs_res{ nullptr }, cs_count{ 0 } {
-	}
 	ConfirmationSender::~ConfirmationSender() {
 		delete[] cs_res;
 		cs_res = nullptr;
