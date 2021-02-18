@@ -22,9 +22,9 @@ namespace sdds {
 		std::string r_resID; //an array of characters
 		std::string r_resName; //the name on the reservation
 		std::string r_resEmail; //the email to be used to send a confirmation
-		int r_noOfPeople; //the number of people in the party
-		int r_day; //the day when the party expects to come (1-28)
-		int r_hour; //the hour when the party expects to come (1-24)
+		size_t r_noOfPeople; //the number of people in the party
+		size_t r_day; //the day when the party expects to come (1-28)
+		size_t r_hour; //the hour when the party expects to come (1-24)
 	public:
 		Reservation(); //default constructor
 		Reservation(const std::string& res); //extract information about the reservation from the string and store in the instance's attributes
