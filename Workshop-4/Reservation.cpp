@@ -18,8 +18,6 @@
 using namespace std;
 
 namespace sdds {
-	Reservation::Reservation() : r_resID{ "" }, r_resName{ "" }, r_resEmail{ "" }, r_noOfPeople{ 0 }, r_day{ 1 }, r_hour{ 1 }{
-	}
 	Reservation::Reservation(const std::string& res) {
 		std::string str = res; //temp reservation string
 		std::string id, name, email, numPeople, day, hour; //temp variables to hold data
