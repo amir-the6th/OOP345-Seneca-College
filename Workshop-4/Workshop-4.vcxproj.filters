@@ -40,8 +40,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="data.txt" />
-    <Text Include="sample_output-p1.txt" />
-    <Text Include="sample_output-p2.txt" />
+    <Text Include="data.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="sample_output-p1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="sample_output-p2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
