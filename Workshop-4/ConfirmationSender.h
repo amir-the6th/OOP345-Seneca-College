@@ -19,10 +19,10 @@
 
 namespace sdds {
 	class ConfirmationSender {
-		const Reservation** cs_res;
-		size_t cs_count;
+		const Reservation** cs_res{};
+		size_t cs_count{};
 	public:
-		ConfirmationSender();
+		ConfirmationSender() {};
 		~ConfirmationSender();
 		ConfirmationSender(ConfirmationSender& src); //mandatory member function of class with resource: copy constructor
 		ConfirmationSender& operator=(const ConfirmationSender& src); //mandatory member function of class with resource: copy-assignment operator
