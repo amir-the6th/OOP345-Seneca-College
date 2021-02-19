@@ -65,7 +65,7 @@ namespace sdds {
 		os << "Fancy Restaurant (" << cnt++ << ")\n";
 		os << "--------------------------\n";
 		if (RES.rs_count == 0) {
-			os << "--------------------------\n";
+			//os << "--------------------------\n";
 			os << "This restaurant is empty!\n";
 			os << "--------------------------\n";
 		}
