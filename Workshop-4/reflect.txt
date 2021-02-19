@@ -1,0 +1,15 @@
+/********************************************
+///    Name:        Amirhossein Sabagh    ///
+///    Student#:    152956199             ///
+///    Email:       asabagh@myseneca.ca   ///
+///    Date:        2021-02-14            ///
+|*******************************************|
+|********  Workshop 4 - Reflection  ********|
+|*******************************************|
+|   I have done all the coding by myself    |
+|     and only copied the code that my      |
+|     professor provided to complete my     |
+|        workshops and assignments.         |
+********************************************/
+
+This has been a tough week for me. I was struggling with a run-time error that I first doubted to be originated from my insufficient knowledge of composition and aggregation; but it was due to forgetting a simple matter, that I should not initialize strings with "nullptr." A composition relationship is a type of connection between classes in where one class completely contains the other class. In this relationship, the composer is obliged to destroy the component objects before its destruction. On the other hand, in the aggregation relationship which is a composition relationship but a less coupled version one, the aggregator is no longer in charge of the destruction of the objects that it uses. In aggregation, we create instances of the objects in the aggregator object and, therefore, the aggregator is complete without its components and the components, though it may not be reasonable, can still live after the aggregator type gets destroyed. The main difference between move and copy functions in a composition and an aggregation is: copy and move functions in a composition are in charge of destroying the composer's resources; however, in an aggregation, they are responsible for destroying a pointer rather than the resource. We allocate and later destruct memory through a move and copy function in a composition relationship; these two functions, in an aggregation relationship, operate not to allocate and destroy memory, but to compy or move the pointer from one place to another.
