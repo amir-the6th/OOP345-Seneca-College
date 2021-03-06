@@ -32,13 +32,13 @@
     <ClCompile Include="Book.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="w5_p1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SpellChecker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Movie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w5_p2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
