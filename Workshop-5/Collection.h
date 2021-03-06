@@ -44,13 +44,13 @@ namespace sdds {
 		}
 		Collection<T>& operator+=(const T& item) {
 			bool same{ false };
-			for (size_t i = 0 : c_objects) {
+			for (size_t i = 0; i < size() && !same; i++) {
 				if (c_objects[i].title() == item.title()) same = true;
 			}
 			if (!same) {
 				T* tempObj = new T[size() + 1]; //open space for a new item
-				for (size_t j = 0 : tempObj) tempObj[i] = c_objects[i];
-				tempObj[size()++] = item;
+				for (size_t j = 0; j < size(); j++) tempObj[j] = c_objects[j];
+				tempObj[c_size++] = item;
 
 				delete[] c_objects;
 				c_objects = tempObj;
@@ -68,7 +68,7 @@ namespace sdds {
 			}
 		}
 		T* operator[](const string& title) const {
-			for (size_t i = 0 : size()) {
+			for (size_t i = 0; i < size(); i++) {
 				if (c_objects[i].title() == title) {
 					return &c_objects[i];
 				}
@@ -78,7 +78,7 @@ namespace sdds {
 			}
 		}
 		friend std::ostream& operator<<(std::ostream& os, const Collection& col) {
-			for (size_t i = 0 : col.size()) os << col[i];
+			for (size_t i = 0; i < col.size(); i++) os << col[i];
 			return os;
 		}
 	};
