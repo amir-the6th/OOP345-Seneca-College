@@ -2,7 +2,7 @@
 ///    Name:        Amirhossein Sabagh    ///
 ///    Student#:    152956199             ///
 ///    Email:       asabagh@myseneca.ca   ///
-///    Date:        2021-03-05            ///
+///    Date:        2021-03-06            ///
 |*******************************************|
 |*********  Workshop 5 - part 1&2  *********|
 |*******************************************|
@@ -19,27 +19,21 @@ namespace sdds {
 	const std::string& sdds::Book::author() const {
 		return b_author;
 	}
-
 	const std::string& sdds::Book::title() const {
 		return b_title;
 	}
-
 	const std::string& sdds::Book::country() const {
 		return b_country;
 	}
-
 	const size_t& sdds::Book::year() const {
 		return b_year;
 	}
-
 	double& sdds::Book::price() {
 		return b_price;
 	}
-
 	const std::string& sdds::Book::description() const {
 		return b_description;
 	}
-
 	sdds::Book::Book(const std::string& strBook) {
 		string str = strBook; //temp book string
 		string author, title, country, price, year, description; //temp variables to hold data
@@ -86,7 +80,6 @@ namespace sdds {
 		b_year = stoi(year);  //parses str and interprets it as an int
 		b_description = description;
 	}
-
 	std::ostream& operator<<(std::ostream& os, const Book& bck) {
 		os << std::setw(20) << bck.author() << " | ";
 		os << std::setw(22) << bck.title() << " | ";
