@@ -59,7 +59,21 @@ int main(int argc, char** argv)
 		//       - lines that start with "#" are considered comments and should be ignored
 		//       - if the file cannot be open, print a message to standard error console and
 		//                exit from application with error code "AppErrors::CannotOpenFile"
+		size_t cntBooks{ 0 };
+		std::ifstream file(argv[1]);
+		if (!file)
+		{
+			std::cerr << "ERROR: Cannot open file [" << argv[1] << "].\n";
+			exit(AppErrors::CannotOpenFile);
+		}
 
+		std::string strBook;
+		do {
+			std::getline(file, strBook);
+			if (strBook[0] != '#') {
+				library += Book(strBook);
+			}
+		} while (++cntBooks < 4);
 
 
 
@@ -73,9 +87,12 @@ int main(int argc, char** argv)
 		library.setObserver(bookAddedObserver);
 
 		// TODO: add the rest of the books from the file.
-
-
-
+		do {
+			std::getline(file, strBook);
+			if (strBook[0] != '#') {
+				library[cntBooks++] = strBook;
+			}
+		} while (cntBooks < 7);
 	}
 	else
 	{
@@ -92,7 +109,15 @@ int main(int argc, char** argv)
 	//            and save the new price in the book object
 	//       - if the book was published in UK between 1990 and 1999 (inclussive),
 	//            multiply the price with "gbpToCadRate" and save the new price in the book object
-
+	auto fixPrice = [&](sdds::Book& bck) {
+		if (bck.country() == "US") {
+			bck.price() *= usdToCadRate;
+		}
+		else if (bck.country() == "UK" && (bck.year() >= 1990 && bck.year() <= 1999)) {
+			bck.price() *= gbpToCadRate;
+		}
+		return bck.price();
+	};
 
 
 	std::cout << "-----------------------------------------\n";
@@ -103,7 +128,8 @@ int main(int argc, char** argv)
 
 	// TODO (from part #1): iterate over the library and update the price of each book
 	//         using the lambda defined above.
-
+	for (size_t i = 0; i < library.size(); i++)
+		std::cout << library[i];
 
 
 	std::cout << "-----------------------------------------\n";
@@ -121,7 +147,21 @@ int main(int argc, char** argv)
 		//       - read one line at a time, and pass it to the Movie constructor
 		//       - store each movie read into the array "movies"
 		//       - lines that start with "#" are considered comments and should be ignored
+		size_t cntMovies{ 0 };
+		std::ifstream file(argv[2]);
+		if (!file)
+		{
+			std::cerr << "ERROR: Cannot open file [" << argv[2] << "].\n";
+			exit(AppErrors::CannotOpenFile);
+		}
 
+		std::string strMovie;
+		do {
+			std::getline(file, strMovie);
+			if (strMovie[0] != '#') {
+				library[cntMovies++] = strMovie;
+			}
+		} while (cntMovies < 5);
 
 
 
@@ -155,8 +195,16 @@ int main(int argc, char** argv)
 		//       If an exception occurs print a message in the following format
 		//** EXCEPTION: ERROR_MESSAGE<endl>
 		//         where ERROR_MESSAGE is extracted from the exception object.
+	try {
 		for (auto i = 0u; i < 10; ++i)
 			std::cout << theCollection[i];
+	}
+	catch (std::out_of_range& out) {
+		std::cerr << "** EXCEPTION: " << out.what() << std::endl;
+	}
+	catch (std::exception& e) {
+		std::cerr << "** EXCEPTION: " << e.what() << std::endl;
+	}
 
 	std::cout << "-----------------------------------------\n\n";
 
@@ -171,6 +219,7 @@ int main(int argc, char** argv)
 			//       If an exception occurs print a message in the following format
 			//** EXCEPTION: ERROR_MESSAGE<endl>
 			//         where ERROR_MESSAGE is extracted from the exception object.
+		try {
 			SpellChecker sp(argv[i]);
 			for (auto j = 0u; j < library.size(); ++j)
 				library[j].fixSpelling(sp);
@@ -179,6 +228,13 @@ int main(int argc, char** argv)
 			for (auto j = 0u; j < theCollection.size(); ++j)
 				theCollection[j].fixSpelling(sp);
 			sp.showStatistics(std::cout);
+		}
+		catch (const char* err) {
+			std::cerr << "** EXCEPTION: " << err << std::endl;
+		}
+		catch (std::exception& e) {
+			std::cerr << "** EXCEPTION: " << e.what() << std::endl;
+		}
 	}
 	if (argc < 3) {
 		std::cout << "** Spellchecker is empty\n";
