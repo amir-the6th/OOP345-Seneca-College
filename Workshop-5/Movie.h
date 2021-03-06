@@ -15,6 +15,7 @@
 #ifndef SDDS_MOVIE_H
 #define SDDS_MOVIE_H
 #include <iostream>
+#include <string>
 namespace sdds {
 	typedef std::string string;
 	class Movie {
