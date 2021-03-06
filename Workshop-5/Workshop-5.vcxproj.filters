@@ -18,6 +18,9 @@
     <ClInclude Include="Book.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SpellChecker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Book.cpp">
@@ -26,9 +29,15 @@
     <ClCompile Include="w5_p1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SpellChecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="books.txt" />
     <Text Include="sample_output-p1.txt" />
+    <Text Include="movies.txt" />
+    <Text Include="sample_output-p2.txt" />
+    <Text Include="words.txt" />
   </ItemGroup>
 </Project>
