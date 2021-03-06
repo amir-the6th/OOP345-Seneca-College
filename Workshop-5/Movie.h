@@ -25,6 +25,7 @@ namespace sdds {
 		Movie() {};
 		Movie(const std::string& strMovie);
 		const std::string& title() const;
+		const std::string& description() const;
 		const size_t year() const;
 		friend std::ostream& operator<<(std::ostream& os, const Movie& mov);
 
