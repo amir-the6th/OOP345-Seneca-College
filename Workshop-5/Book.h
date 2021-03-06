@@ -35,6 +35,11 @@ namespace sdds {
 		const std::string& description() const;
 		Book(const std::string& strBook);
 		friend std::ostream& operator<<(std::ostream& os, const Book& bck);
+
+		template <typename T>
+		void fixSpelling(T& spellChecker) {
+			spellChecker(b_description);
+		}
 	};
 }
 #endif
