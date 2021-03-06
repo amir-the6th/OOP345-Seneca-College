@@ -18,9 +18,21 @@
 namespace sdds {
 	typedef std::string string;
 	class Movie {
-		string m_title; //title
-		size_t m_year; //
-		string m_description;
+		string m_title{}; //title
+		size_t m_year{ 0 }; //the year of release
+		string m_description{}; //the description
+	public:
+		Movie() {};
+		Movie(const std::string& strMovie);
+		const std::string& title() const;
+		const size_t year() const;
+		friend std::ostream& operator<<(std::ostream& os, const Movie& mov);
+
+		template <typename T>
+		void fixSpelling(T& spellChecker) {
+			spellChecker(m_title);
+			spellChecker(m_description);
+		}
 	};
 }
 #endif
