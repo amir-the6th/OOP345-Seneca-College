@@ -1,0 +1,20 @@
+/********************************************
+///    Name:        Amirhossein Sabagh    ///
+///    Student#:    152956199             ///
+///    Email:       asabagh@myseneca.ca   ///
+///    Date:        2021-03-07            ///
+|*******************************************|
+|********  Workshop 5 - Reflection  ********|
+|*******************************************|
+|   I have done all the coding by myself    |
+|     and only copied the code that my      |
+|     professor provided to complete my     |
+|        workshops and assignments.         |
+********************************************/
+
+For this workshop, I have occurred a lot of run-time errors and fixed them all with the help of debugging and exceptions. One of the interesting errors that I have occurred in this workshop happened at line 74 of the w5_p2.cpp file. When I debugged it, I saw that the bad_alloc exception is thrown when the += operator in the Collection module is called. Knowing this exception and the reason behind throwing it, I was able to detect my mistake and resolve the issue by deleting the extra memory deallocation. Although it took me 2 hours to find the origin of this error, I couldn't have solved it if the exception was not thrown so I could know which part specifically I am doing a mistake in.
+The difference between a functor and a lambda is that functor is actually a function call operator overload and is required to be declared within a class as a member function. A lambda expression is a nameless functor. As functor is more complicated than lambda due to dealing with member variables, it is suggested to choose lambda over functor except for two situations: when the function is repeated in multiple places or it is a large function, a functor is a better pick.
+The constructor for SpellChecker generates an exception when the program cannot open the file(the wrong filename, the file doesn't exist, etc.). We can avoid this exception by making the client responsible for successfully opening the file. In this case, when the if statement fails, the program can report an error to the client and ask them to fix the error.
+For making Movie and Book classes more efficient, we can create an abstract base class and derive these classes from it. Another way to avoid duplication of code is to make use of parametric polymorphism by using templates. Templates can help us create functions with the same logic and differentiate the type of objects that we pass to them at the same time.
+To help us avoid confusion regarding instantiating the member variables and secure the program, I think the default constructor is a necessary part of the declaration of these classes. For this workshop, however, I used the default member initializers as they helped me keep the code clean while maintaining the security of the class.
+
