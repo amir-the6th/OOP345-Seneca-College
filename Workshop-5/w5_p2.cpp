@@ -71,9 +71,11 @@ int main(int argc, char** argv)
 		do {
 			std::getline(file, strBook);
 			if (strBook[0] != '#') {
-				library += Book(strBook);
+				Book book(strBook);
+				library += book;
+				cntBooks++;
 			}
-		} while (++cntBooks < 4);
+		} while (cntBooks < 4);
 
 
 
@@ -90,7 +92,9 @@ int main(int argc, char** argv)
 		do {
 			std::getline(file, strBook);
 			if (strBook[0] != '#') {
-				library[cntBooks++] = strBook;
+				//library[cntBooks++] = strBook;
+				library += Book(strBook);
+				cntBooks++;
 			}
 		} while (cntBooks < 7);
 	}
@@ -129,7 +133,7 @@ int main(int argc, char** argv)
 	// TODO (from part #1): iterate over the library and update the price of each book
 	//         using the lambda defined above.
 	for (size_t i = 0; i < library.size(); i++)
-		std::cout << library[i];
+		fixPrice(library[i]);
 
 
 	std::cout << "-----------------------------------------\n";
@@ -159,7 +163,8 @@ int main(int argc, char** argv)
 		do {
 			std::getline(file, strMovie);
 			if (strMovie[0] != '#') {
-				library[cntMovies++] = strMovie;
+				movies[cntMovies] = Movie(strMovie);
+				cntMovies++;
 			}
 		} while (cntMovies < 5);
 
