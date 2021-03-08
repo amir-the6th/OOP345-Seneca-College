@@ -71,8 +71,7 @@ int main(int argc, char** argv)
 		do {
 			std::getline(file, strBook);
 			if (strBook[0] != '#') {
-				Book book(strBook);
-				library += book;
+				library += Book(strBook);
 				cntBooks++;
 			}
 		} while (cntBooks < 4);
@@ -92,7 +91,6 @@ int main(int argc, char** argv)
 		do {
 			std::getline(file, strBook);
 			if (strBook[0] != '#') {
-				//library[cntBooks++] = strBook;
 				library += Book(strBook);
 				cntBooks++;
 			}
