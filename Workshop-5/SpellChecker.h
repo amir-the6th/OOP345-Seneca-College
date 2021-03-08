@@ -15,16 +15,18 @@
 #ifndef SDDS_SPELLCHECKER_H
 #define SDDS_SPELLCHECKER_H
 #include <iostream>
+#include <iomanip>
 #include <string>
+#include <fstream>
 const size_t MAX_WORDS = 6;
 namespace sdds {
 	typedef std::string string;
 	class SpellChecker {
-		string m_badWords[MAX_WORDS]{}; //an array with 6 misspelled words
-		string m_goodWords[MAX_WORDS]{}; //an array with the correct spelling of those 6 words
-		size_t count[MAX_WORDS]{ 0 }; //number of times each misspelled word has been replaced
+		string m_badWords[MAX_WORDS]; //an array with 6 misspelled words
+		string m_goodWords[MAX_WORDS]; //an array with the correct spelling of those 6 words
+		size_t count[MAX_WORDS]{}; //number of times each misspelled word has been replaced
 	public:
-		SpellChecker() {};
+		SpellChecker() : m_badWords{}, m_goodWords{} {};
 		SpellChecker(const char* filename);
 		void operator()(std::string& text);
 		void showStatistics(std::ostream& out) const;
