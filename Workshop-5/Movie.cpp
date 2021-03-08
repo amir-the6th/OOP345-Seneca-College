@@ -12,9 +12,6 @@
 |        workshops and assignments.         |
 ********************************************/
 
-#include <iostream>
-#include <string>
-#include <iomanip>
 #include "Movie.h"
 namespace sdds {
 	Movie::Movie(const std::string& strMovie) {
@@ -30,8 +27,7 @@ namespace sdds {
 		str.erase(0, str.find(',') + 1);
 
 		//DESCRIPTION
-		description = str.substr(0, str.find(','));
-		str.erase(0, str.find(',') + 1);
+		description = str;
 
 		//trim whitespace
 		title.erase(0, title.find_first_not_of(' '));
@@ -58,7 +54,7 @@ namespace sdds {
 	std::ostream& operator<<(std::ostream& os, const Movie& mov) {
 		os << std::setw(40) << mov.title() << " | ";
 		os << std::setw(4) << mov.year() << " | ";
-		os << mov.description() << " | " << std::endl;
+		os << mov.description() << std::endl;
 		return os;
 	}
 }
