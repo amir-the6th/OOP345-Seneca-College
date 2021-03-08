@@ -11,8 +11,7 @@
 |     professor provided to complete my     |
 |        workshops and assignments.         |
 ********************************************/
-#include <iostream>
-#include <iomanip>
+
 #include "Book.h"
 
 namespace sdds {
@@ -59,8 +58,7 @@ namespace sdds {
 		str.erase(0, str.find(',') + 1);
 
 		//DESCRIPTION
-		description = str.substr(0, str.find(','));
-		str.erase(0, str.find(',') + 1);
+		description = str;
 
 		//trim whitespace
 		author.erase(0, author.find_first_not_of(' '));

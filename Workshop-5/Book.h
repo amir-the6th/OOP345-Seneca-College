@@ -15,6 +15,7 @@
 #ifndef SDDS_BOOK_H
 #define SDDS_BOOK_H
 #include <iostream>
+#include <iomanip>
 #include <string>
 namespace sdds {
 	typedef std::string string;
