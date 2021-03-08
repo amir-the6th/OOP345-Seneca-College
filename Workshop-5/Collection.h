@@ -23,7 +23,7 @@ namespace sdds {
 		string c_name{};
 		T* c_objects{};
 		size_t c_size{ 0 };
-		void (*c_observer)(const Collection<T>&, const T&) {};
+		void (*c_observer)(const Collection<T>&, const T&) { nullptr };
 	public:
 		Collection(const string& name) : c_name(name) {}
 		Collection(Collection&) = delete;
@@ -44,17 +44,19 @@ namespace sdds {
 		}
 		Collection<T>& operator+=(const T& item) {
 			bool same{ false };
-			for (size_t i = 0; i < size() && !same; i++) {
-				if (c_objects[i].title() == item.title()) same = true;
+			for (size_t i = 0; i < size(); i++) {
+				if (c_objects[i].title() == item.title()) 
+					same = true;
 			}
 			if (!same) {
 				T* tempObj = new T[size() + 1]; //open space for a new item
-				for (size_t j = 0; j < size(); j++) tempObj[j] = c_objects[j];
+				
+				for (size_t i = 0; i < size(); i++)
+					tempObj[i] = c_objects[i];
 				tempObj[c_size++] = item;
-
 				delete[] c_objects;
 				c_objects = tempObj;
-				delete[] tempObj;
+				//++c_size;
 				if (c_observer != nullptr) c_observer(*this, item);
 			}
 			return *this;
@@ -68,14 +70,21 @@ namespace sdds {
 			}
 		}
 		T* operator[](const string& title) const {
+			T* temp { nullptr };
+			//int index{ -1 };
 			for (size_t i = 0; i < size(); i++) {
 				if (c_objects[i].title() == title) {
-					return &c_objects[i];
-				}
-				else {
-					return nullptr;
+					//index = i;
+					temp = &c_objects[i];
 				}
 			}
+			/*if (index != -1) {
+				return &c_objects[index];
+			}
+			else {
+					return nullptr;
+			}*/
+			return temp;
 		}
 		friend std::ostream& operator<<(std::ostream& os, const Collection& col) {
 			for (size_t i = 0; i < col.size(); i++) os << col[i];
