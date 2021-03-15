@@ -13,6 +13,7 @@
 ********************************************/
 #include <sstream>
 #include "Utilities.h"
+#include "Car.h"
 #include "Racecar.h"
 
 namespace sdds {
