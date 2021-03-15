@@ -15,7 +15,14 @@
 
 namespace sdds {
 	Racecar::Racecar(std::istream& in) : Car(in) {
-		in >> m_booster;
+		try {
+			std::string temp{};
+			std::getline(in, temp, ',');
+			m_booster = std::stod(trim(temp));
+		}
+		catch (...) {
+			throw std::invalid_argument("Invalid record!");
+		}
 	}
 	void Racecar::display(std::ostream& out) const {
 		Car::display(out);

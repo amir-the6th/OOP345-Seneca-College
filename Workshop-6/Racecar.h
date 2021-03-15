@@ -14,8 +14,6 @@
 
 #ifndef SDDS_RACECAR_H
 #define SDDS_RACECAR_H
-#include <iostream>
-#include <string>
 #include "Car.h"
 
 namespace sdds {
