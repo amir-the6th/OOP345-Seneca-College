@@ -1,0 +1,16 @@
+
+/********************************************
+///    Name:        Amirhossein Sabagh    ///
+///    Student#:    152956199             ///
+///    Email:       asabagh@myseneca.ca   ///
+///    Date:        2021-03-14            ///
+|*******************************************|
+|********  Workshop 6 - Reflection *********|
+|*******************************************|
+|   I have done all the coding by myself    |
+|     and only copied the code that my      |
+|     professor provided to complete my     |
+|        workshops and assignments.         |
+********************************************/
+
+We need to deallocate the memory that we pointed to in the vectors because we created a vector of pointers and, therefore, it is our responsibility to free the memory that dynamic allocation is occupying at the end. Now, the question arises that why did we use the vector of pointers in the first place. We choose the vector of pointers over the vector of objects when we are dealing with polymorphic objects. In the += operator overload in the Autoshop module, we desire to push back vehicle information to our vector. This couldn't have been easily possible if instead of a vector of type Vehicle* we used vector of type Vehicle. The loadData() function detects the reason behind the corruption of the code with the help of exceptions. We enclosed the portion of the code that we suspect may cause errors and put it in a try-block. When an exceptional situation happens in the block, an exception is thrown (this has been implemented in the definition of functions that we called in the block) and the control is transferred to the exception handler. Exception handlers are declared with the keyword catch. We can have multiple catch blocks and each of them has a condition that may be met; the catch accepts one type as the parameter and when the type of the exception and the catch condition match, it enters the block and states to the user what exactly caused the error. If the parameter of the catch is an ellipsis, the handler catches any exception no matter what the type is. In this workshop, to increase efficiency, I implemented a trim utility that is responsible for accepting a string and trimming all the spaces before and after the string. As the delimiter used for the stream was a comma, the trim function searched for the delimiter and omitted it.
