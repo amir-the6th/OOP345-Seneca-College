@@ -32,8 +32,8 @@ void loadData(const char* filename, sdds::Autoshop& as)
 		catch (char c) {
 			std::cerr << "Unrecognized record type: [" << c << "]" << std::endl;
 		}
-		catch (std::invalid_argument&) {
-			std::cerr << "Invalid record!" << std::endl;
+		catch (std::invalid_argument& invalid) {
+			std::cerr << invalid.what() << std::endl;
 		}
 	}
 }
