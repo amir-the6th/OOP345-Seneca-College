@@ -11,24 +11,37 @@
 |     professor provided to complete my     |
 |        workshops and assignments.         |
 ********************************************/
+#include <sstream>
 #include "Utilities.h"
+#include "Racecar.h"
 
 namespace sdds {
-    Vehicle* sdds::createInstance(std::istream& in) {
-        std::string temp{};
-        in >> temp;
-        if (temp[0] == 'c' || temp[0] == 'C') {
-            return new Car(in);
+    Vehicle* createInstance(std::istream& in) {
+        std::string temp{}, type{};
+        std::getline(in, temp, '\n');
+        type = trim(temp);
+
+        std::stringstream str;
+        if (!temp.empty()) {
+            if (type == "c" || type == "C") {
+                str << temp;
+                return new Car(str);
+            }
+            else if (type == "r" || type == "R") {
+                str << temp;
+                return new Racecar(str);
+            }
+            else {
+                throw type[0];
+            }
         }
-        else {
-            return nullptr;
-        }
+        else return nullptr;
     }
 
     //trim utility
-    string& trim(string& str) {
+    std::string& trim(std::string& str) {
         const char* charsToOmit{ " \f\n\r\t\v" };
-        string temp{};
+        std::string temp{};
         temp = str.substr(0, str.find(","));
         temp.erase(0, temp.find_first_not_of(charsToOmit));
         temp.erase(temp.find_last_not_of(charsToOmit) + 1);
