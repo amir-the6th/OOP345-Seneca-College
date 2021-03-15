@@ -17,6 +17,9 @@
   <ItemGroup>
     <Text Include="cars.txt" />
     <Text Include="sample_output-p1.txt" />
+    <Text Include="dataClean.txt" />
+    <Text Include="dataMessy.txt" />
+    <Text Include="sample_output-p2.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vehicle.h">
@@ -36,9 +39,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="w6_p1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Car.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,6 +49,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Racecar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w6_p2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

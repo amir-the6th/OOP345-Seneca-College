@@ -140,7 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="cars.txt" />
+    <Text Include="dataClean.txt" />
+    <Text Include="dataMessy.txt" />
     <Text Include="sample_output-p1.txt" />
+    <Text Include="sample_output-p2.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Autoshop.h" />
@@ -154,7 +157,7 @@
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="Racecar.cpp" />
     <ClCompile Include="Utilities.cpp" />
-    <ClCompile Include="w6_p1.cpp" />
+    <ClCompile Include="w6_p2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
