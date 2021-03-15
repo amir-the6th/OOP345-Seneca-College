@@ -13,16 +13,7 @@
 ********************************************/
 #include "Car.h"
 
-namespace sdds {	
-	/*string& trim(string& str) {
-		string charsToOmit{ " \f\n\r\t\v" }, temp{};
-		temp = str.substr(0, str.find(","));
-		temp.erase(0, temp.find_first_not_of(charsToOmit));
-		temp.erase(temp.find_last_not_of(charsToOmit) + 1);
-		str.erase(0, str.find(",") + 1);
-		return temp;
-	}*/
-
+namespace sdds {
 	Car::Car(std::istream& is) {
 		std::string temp;
 
@@ -39,7 +30,7 @@ namespace sdds {
 			c_condition = temp[0];
 
 			if (c_condition != 'n' && c_condition != 'u' && c_condition != 'b')
-				throw std::invalid_argument("the record is invalid");
+				throw std::invalid_argument("Invalid record!");
 		}
 
 		//Top Speed
@@ -47,14 +38,14 @@ namespace sdds {
 			std::getline(is, temp, ',');
 			c_topSp = stod(trim(temp));
 		}
-		catch (std::invalid_argument& invalid) {
-			throw invalid;
+		catch (...) {
+			throw std::invalid_argument("Invalid record!");
 		}
 	}
-	string Car::maker() const {
+	std::string Car::maker() const {
 		return c_maker;
 	}
-	string Car::condition() const {
+	std::string Car::condition() const {
 		std::string cond;
 		if (c_condition == 'n') {
 			cond = "new";

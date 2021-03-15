@@ -14,24 +14,21 @@
 
 #ifndef SDDS_CAR_H
 #define SDDS_CAR_H
-#include <iostream>
 #include <iomanip>
-#include <string>
 #include "Vehicle.h"
 #include "Utilities.h"
 
 namespace sdds {
-	typedef std::string string;
 	class Car : public Vehicle {
-		string c_maker{}; //maker
+		std::string c_maker{}; //maker
 		char c_condition{}; //condition: a car can be new, used, or broken in need of repairs.
 		double c_topSp{ 0.0 }; //top speed
 	public:
 		Car() {};
 		~Car() {};
 		Car(std::istream& is);
-		string maker() const;
-		string condition() const;
+		std::string maker() const;
+		std::string condition() const;
 		double topSpeed() const;
 		void display(std::ostream& out) const;
 	};
