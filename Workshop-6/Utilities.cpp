@@ -13,7 +13,6 @@
 ********************************************/
 #include <sstream>
 #include "Utilities.h"
-#include "Car.h"
 #include "Racecar.h"
 
 namespace sdds {
@@ -40,7 +39,7 @@ namespace sdds {
     }
 
     //trim utility
-    std::string& trim(std::string& str) {
+    std::string trim(std::string& str) {
         const char* charsToOmit{ " \f\n\r\t\v" };
         std::string temp{};
         temp = str.substr(0, str.find(","));
