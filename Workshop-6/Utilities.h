@@ -16,9 +16,9 @@
 #define SDDS_UTILITIES_H
 #include "Vehicle.h"
 #include "Car.h"
+
 namespace sdds {
-	typedef std::string string;
+	std::string& trim(std::string& str);
 	Vehicle* createInstance(std::istream& in);
-	string& trim(string& str);
 }
 #endif
