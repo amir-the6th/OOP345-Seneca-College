@@ -13,6 +13,11 @@
 ********************************************/
 #include "Autoshop.h"
 namespace sdds {
+    Autoshop::~Autoshop() {
+        for (auto vehicle : m_vehicles) {
+            delete vehicle;
+        }
+    }
     Autoshop& Autoshop::operator+=(Vehicle* theVehicle) {
         m_vehicles.push_back(theVehicle);
         return *this;
