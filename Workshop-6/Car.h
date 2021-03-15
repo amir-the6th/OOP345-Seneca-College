@@ -21,10 +21,11 @@
 #include "Utilities.h"
 
 namespace sdds {
+	typedef std::string string;
 	class Car : public Vehicle {
-		string c_maker{""}; //maker
-		string c_condition{""}; //condition: a car can be new, used, or broken in need of repairs.
-		double c_topSp{ 0 }; //top speed
+		string c_maker{}; //maker
+		char c_condition{}; //condition: a car can be new, used, or broken in need of repairs.
+		double c_topSp{ 0.0 }; //top speed
 	public:
 		Car() {};
 		~Car() {};

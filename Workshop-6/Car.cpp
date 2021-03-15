@@ -14,51 +14,65 @@
 #include "Car.h"
 
 namespace sdds {	
+	/*string& trim(string& str) {
+		string charsToOmit{ " \f\n\r\t\v" }, temp{};
+		temp = str.substr(0, str.find(","));
+		temp.erase(0, temp.find_first_not_of(charsToOmit));
+		temp.erase(temp.find_last_not_of(charsToOmit) + 1);
+		str.erase(0, str.find(",") + 1);
+		return temp;
+	}*/
+
 	Car::Car(std::istream& is) {
-		string temp{};
-		is >> temp;
-		
+		std::string temp;
+
 		//Maker
-		temp.substr(0, temp.find(','));
+		std::getline(is, temp, ',');
 		c_maker = trim(temp);
-		temp.erase(0, temp.find(',') + 1);
 
 		//Condition
-		temp.substr(0, temp.find(','));
+		std::getline(is, temp, ',');
 		temp = trim(temp);
-		switch (temp[0]) {
-		case 'n':
-			c_condition = "new";
-			break;
-		case 'b':
-			c_condition = "broken";
-			break;
-		case 'u':
-			c_condition = "used";
-			break;
-		default:
-			throw std::invalid_argument("Invalid Condition!");
-			break;
+		if (temp.empty())
+			c_condition = 'n';
+		else {
+			c_condition = temp[0];
+
+			if (c_condition != 'n' && c_condition != 'u' && c_condition != 'b')
+				throw std::invalid_argument("the record is invalid");
 		}
-		temp.erase(0, temp.find(',') + 1);
 
 		//Top Speed
-		temp.substr(0, temp.find(','));
-		c_topSp = stod(trim(temp));
-		temp.erase(0, temp.find(',') + 1);
+		try {
+			std::getline(is, temp, ',');
+			c_topSp = stod(trim(temp));
+		}
+		catch (std::invalid_argument& invalid) {
+			throw invalid;
+		}
 	}
 	string Car::maker() const {
 		return c_maker;
 	}
 	string Car::condition() const {
-		return c_condition;
+		std::string cond;
+		if (c_condition == 'n') {
+			cond = "new";
+		}
+		else if (c_condition == 'u') {
+			cond = "used";
+		}
+		else if (c_condition == 'b') {
+			cond = "broken";
+		}
+		return cond;
 	}
 	double Car::topSpeed() const {
 		return c_topSp;
 	}
 	void Car::display(std::ostream& out) const {
 		out << "| " << std::setw(10) << std::right << maker() 
-			<< " | " << std::setw(6) << std::right << condition() 
-			<< " | " << std::fixed << std::setprecision(2) << topSpeed() <<c_topSp << " |";
+			<< " | " << std::setw(6) << std::left << condition() 
+			<< " | " << std::fixed << std::setprecision(2) << topSpeed() << " |";
 	}
 }

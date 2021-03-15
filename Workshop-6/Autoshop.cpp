@@ -20,8 +20,11 @@ namespace sdds {
     void Autoshop::display(std::ostream& out) const {
         out << "--------------------------------\n"
             << "| Cars in the autoshop!        |\n"
-            << "--------------------------------'n";
-        for (auto i = m_vehicles.begin(); i != m_vehicles.end(); i++) (*i)->display(out);
+            << "--------------------------------\n";
+        for (auto i = m_vehicles.begin(); i != m_vehicles.end(); i++) {
+            (*i)->display(out); 
+            out << std::endl;
+        }
         out << "--------------------------------\n";
     }
 }

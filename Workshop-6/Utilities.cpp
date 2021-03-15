@@ -25,9 +25,10 @@ namespace sdds {
         }
     }
 
-    //trim function - available to all of the functions in the sdds namespace
+    //trim utility
     string& trim(string& str) {
-        string charsToOmit{ " \f\n\r\t\v" }, temp{};
+        const char* charsToOmit{ " \f\n\r\t\v" };
+        string temp{};
         temp = str.substr(0, str.find(","));
         temp.erase(0, temp.find_first_not_of(charsToOmit));
         temp.erase(temp.find_last_not_of(charsToOmit) + 1);

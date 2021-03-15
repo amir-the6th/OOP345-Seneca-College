@@ -11,20 +11,17 @@
 |     professor provided to complete my     |
 |        workshops and assignments.         |
 ********************************************/
-
-#ifndef SDDS_VEHICLE_H
-#define SDDS_VEHICLE_H
-#include <iostream>
-#include <string>
+#include "Racecar.h"
 
 namespace sdds {
-	class Vehicle {
-	public:
-		virtual double topSpeed() const = 0;
-		virtual void display(std::ostream&) const = 0;
-		virtual std::string condition() const = 0;
-		virtual ~Vehicle() {};
-	};
+	Racecar::Racecar(std::istream& in) : Car(in) {
+		in >> m_booster;
+	}
+	void Racecar::display(std::ostream& out) const {
+		Car::display(out);
+		out << '*';
+	}
+	double Racecar::topSpeed() const {
+		return (Car::topSpeed() + (Car::topSpeed() * m_booster));
+	}
 }
-
-#endif
