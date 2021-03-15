@@ -15,7 +15,6 @@
 #ifndef SDDS_UTILITIES_H
 #define SDDS_UTILITIES_H
 #include "Vehicle.h"
-#include "Car.h"
 
 namespace sdds {
 	std::string& trim(std::string& str);
