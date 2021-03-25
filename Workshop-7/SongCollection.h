@@ -14,24 +14,26 @@
 
 #ifndef SDDS_SONGCOLLECTION_H
 #define SDDS_SONGCOLLECTION_H
+#include <iostream>
+#include <iomanip>
 #include <string>
+#include <fstream>
+#include <algorithm>
+#include <vector>
 
 namespace sdds {
 	typedef std::string string;
 	struct Song {
-	private:
-		string s_artist{};
-		string s_title{};
-		string s_album{};
-		double s_price{};
-		size_t s_releaseYear{};
-		size_t s_length{};
+		string artist{}, title{}, album{};
+		double price{};
+		size_t releaseYear{}, length{};
 	};
 	class SongCollection {
-		Song song;
+		std::vector<Song> songs;
 	public:
-		SongCollection(string file);
+		SongCollection(string filename);
 		void display(std::ostream& out) const;
+		string trim(string& str);
 	};
 	std::ostream& operator<<(std::ostream& out, const Song& theSong);
 }
