@@ -23,40 +23,48 @@ namespace sdds {
 		else {
 			string str, title, artist, album, year, length, price;
 			Song song;
-			do {
+			while(file){
 				std::getline(file, str, '\n');
 
-				//TITLE
-				title = str.substr(0, 25);
-				song.title = trim(title);
-				str.erase(0, 25);
+				if (!str.empty()) {
+					//TITLE
+					title = str.substr(0, 25);
+					song.title = trim(title);
+					str.erase(0, 25);
 
-				//ARTIST
-				artist = str.substr(0, 25);
-				song.artist = trim(artist);
-				str.erase(0, 25);
+					//ARTIST
+					artist = str.substr(0, 25);
+					song.artist = trim(artist);
+					str.erase(0, 25);
 
-				//ALBUM
-				album = str.substr(0, 25);
-				song.album = trim(album);
-				str.erase(0, 25);
+					//ALBUM
+					album = str.substr(0, 25);
+					song.album = trim(album);
+					str.erase(0, 25);
 
-				//YEAR
-				year = str.substr(0, 5);
-				song.releaseYear = std::stoi(trim(year));
-				str.erase(0, 5);
+					//YEAR
+					year = str.substr(0, 5);
+					try {
+						song.releaseYear = std::stoi(trim(year));
+					}
+					catch (std::invalid_argument) {
+						song.releaseYear = 0;
+					}
+					str.erase(0, 5);
 
-				//LENGTH
-				length = str.substr(0, 5);
-				song.length = std::stoi(trim(length));
-				str.erase(0, 5);
+					//LENGTH
+					length = str.substr(0, 5);
+					song.length = std::stoi(trim(length));
+					str.erase(0, 5);
 
-				//PRICE
-				price = str.substr(0, 5);
-				song.price = std::stod(trim(price));
+					//PRICE
+					price = str.substr(0, 5);
+					song.price = std::stod(trim(price));
+					str.erase(0, 5);
 
-				songs.push_back(song); //push the song data to the songs vector
-			} while (file);
+					songs.push_back(song); //push the song data to the songs vector
+				}
+			}
 			file.close();
 		}
 	}
@@ -69,10 +77,11 @@ namespace sdds {
 		return str;
 	}
 	std::ostream& operator<<(std::ostream& out, const Song& theSong) {
+		string tempYear{ theSong.releaseYear == 0 ? "" : std::to_string(theSong.releaseYear) }; //if year is unavailable (set to 0), show nothing
 		out << "| " << std::left << std::setw(20) << theSong.title << " | "
 			<< std::left << std::setw(15) << theSong.artist << " | "
 			<< std::left << std::setw(20) << theSong.album << " | "
-			<< std::setw(6) << std::right << theSong.releaseYear << " | "
+			<< std::setw(6) << std::right << tempYear  << " | "
 			<< (theSong.length % 3600) / 60 << ":" << std::setw(2) << std::setfill('0') << theSong.length % 60 << " | "
 			<< std::fixed << std::setprecision(2) << theSong.price << " |"
 			<< std::setfill(' ');
