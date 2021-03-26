@@ -1,0 +1,24 @@
+/********************************************
+///    Name:        Amirhossein Sabagh    ///
+///    Student#:    152956199             ///
+///    Email:       asabagh@myseneca.ca   ///
+///    Date:        2021-03-25            ///
+|*******************************************|
+|*********  Workshop 7 - Reflection ********|
+|*******************************************|
+|   I have done all the coding by myself    |
+|     and only copied the code that my      |
+|     professor provided to complete my     |
+|        workshops and assignments.         |
+********************************************/
+
+
+In this workshop, I enriched my understanding of vectors and got familiar with algorithm and numeric libraries. I have received help from various STL functions including:
+- for_each: I used this function to loop through my songs vector and display the songs respectively. The benefit of using this function instead of a manual loop is that this function is more organized, more efficient when working with vectors and lists, and the fact that we can achieve what we want in just a single line.
+- accumulate: I used this function to calculate the sum of the lengths of the songs and return the total listening time for the collection. The old method of achieving this would be manually loop through the vector and do the calculation. With std::accumulate, it is vivid for the programmer that what this function wants to achieve and there is no need to read the whole code to understand what it is doing.
+- sort: I used this function to sort my collection according to the field we pass to it. It is way more efficient to use this function instead of coming up with a sort function of our own and do a bubble sort or something else. Using this function reduces the human error and is shorter.
+- transform: I used this function to change what is shown to the user when an album doesn't exist, from "[None]" to "".
+- any_of: I used this function to search if there exists at least one occurence of an artist in the songs collection. It is more efficient than using manual loop due to reasons that I mentioned for the std:accumulate function. I could have also used the find_if function as well, but std::any_of function is shorter and more straight-forward.
+- count_if: I used this function to count how many artists exist in the song collection with the artist name that I passed to the function. The std::count_if function helped me to detemine the size of the list that wanted to declare.
+- copy_if: I used this function to copy the songs that a specific artist has sang and save it a new list. This process that ended up to be achieved in a single line would have been much longer if we wanted to use the manual loops.
+We can use try catch blocks to prevent erros cause by the users. Anytime the client prompts an invalid input or misspells it, an error is thrown and it is clear for the client what caused the error.
