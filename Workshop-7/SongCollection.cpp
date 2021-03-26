@@ -70,6 +70,58 @@ namespace sdds {
 	}
 	void SongCollection::display(std::ostream& out) const {
 		std::for_each(songs.begin(), songs.end(), [&out](const Song theSong) { out << theSong << std::endl;});
+		size_t totalListeningTime = std::accumulate(songs.begin(), songs.end(), (size_t)0,
+			[](size_t total, const Song song) {
+				return total + song.length;
+			});
+		size_t hour{ totalListeningTime / 3600 }, 
+			min{ (totalListeningTime % 3600) / 60 }, 
+			sec{ totalListeningTime % 60 };
+		out << std::setw(89) << std::setfill('-') << '\n' << std::setfill(' ');
+		out << "| " << std::setw(77) << std::right << "Total Listening Time: " << hour << ":" << min << ":" << sec << " |" << std::endl;
+	}
+	void SongCollection::sort(string accordingTo) {
+		if (accordingTo == "title") {
+			std::sort(songs.begin(), songs.end(), [](Song s1, Song s2) -> bool {
+					return s1.title < s2.title;
+				}
+			);
+		}
+		else if (accordingTo == "length") {
+			std::sort(songs.begin(), songs.end(), [](Song s1, Song s2) -> bool {
+				return s1.length < s2.length;
+				}
+			);
+		}
+		else if (accordingTo == "album") {
+			std::sort(songs.begin(), songs.end(), [](Song s1, Song s2) -> bool {
+				return s1.album < s2.album;
+				}
+			);
+		}
+	}
+	void SongCollection::cleanAlbum() {
+		std::transform(songs.begin(), songs.end(), songs.begin(), [=](Song& sng) {
+			sng.album = sng.album == "[None]" ? "" : sng.album;
+			return sng;
+		});
+	}
+	bool SongCollection::inCollection(string artist) const {
+		return std::any_of(songs.begin(), songs.end(), [artist](Song sng) -> bool {
+			return sng.artist == artist;
+		});
+	}
+	std::list<Song> SongCollection::getSongsForArtist(string artist) const {
+		size_t count = std::count_if(songs.begin(), songs.end(), [artist](const Song song) -> bool {
+			return song.artist == artist;
+		});
+
+		std::list<Song> songsWithArtist(count);
+		std::copy_if(songs.begin(), songs.end(), songsWithArtist.begin(), [artist](const Song song) -> bool {
+			return song.artist == artist;
+		});
+
+		return songsWithArtist;
 	}
 	string SongCollection::trim(string& str) {
 		str.erase(str.find_last_not_of(' ') + 1);

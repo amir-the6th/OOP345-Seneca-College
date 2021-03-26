@@ -19,7 +19,9 @@
 #include <string>
 #include <fstream>
 #include <algorithm>
+#include <numeric>
 #include <vector>
+#include <list>
 
 namespace sdds {
 	typedef std::string string;
@@ -33,6 +35,10 @@ namespace sdds {
 	public:
 		SongCollection(string filename);
 		void display(std::ostream& out) const;
+		void sort(string accordingTo);
+		void cleanAlbum();
+		bool inCollection(string artist) const;
+		std::list<Song> getSongsForArtist(string artist) const;
 		string trim(string& str);
 	};
 	std::ostream& operator<<(std::ostream& out, const Song& theSong);
