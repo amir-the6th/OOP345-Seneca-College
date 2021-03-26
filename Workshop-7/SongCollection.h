@@ -42,5 +42,5 @@ namespace sdds {
 		string trim(string& str);
 	};
 	std::ostream& operator<<(std::ostream& out, const Song& theSong);
-}
+} 
 #endif
