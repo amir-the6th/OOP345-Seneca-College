@@ -47,7 +47,7 @@ namespace sdds {
 					try {
 						song.releaseYear = std::stoi(trim(year));
 					}
-					catch (std::invalid_argument) {
+					catch (std::invalid_argument&) {
 						song.releaseYear = 0;
 					}
 					str.erase(0, 5);
@@ -59,7 +59,7 @@ namespace sdds {
 
 					//PRICE
 					price = str.substr(0, 5);
-					song.price = std::stod(trim(price));
+					song.m_price = std::stod(trim(price));
 					str.erase(0, 5);
 
 					songs.push_back(song); //push the song data to the songs vector
@@ -135,7 +135,7 @@ namespace sdds {
 			<< std::left << std::setw(20) << theSong.album << " | "
 			<< std::setw(6) << std::right << tempYear  << " | "
 			<< (theSong.length % 3600) / 60 << ":" << std::setw(2) << std::setfill('0') << theSong.length % 60 << " | "
-			<< std::fixed << std::setprecision(2) << theSong.price << " |"
+			<< std::fixed << std::setprecision(2) << theSong.m_price << " |"
 			<< std::setfill(' ');
 		return out;
 	}

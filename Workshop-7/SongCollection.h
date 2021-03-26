@@ -27,7 +27,7 @@ namespace sdds {
 	typedef std::string string;
 	struct Song {
 		string artist{}, title{}, album{};
-		double price{};
+		double m_price{};
 		size_t releaseYear{}, length{};
 	};
 	class SongCollection {
