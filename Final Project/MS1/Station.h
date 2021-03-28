@@ -23,8 +23,8 @@ namespace sdds {
 		size_t s_id{}; //the id of the station
 		string s_name{}; //the name of the item handled by the station
 		string s_description{}; //the description of the station
-		size_t s_nextSerialNo{}; //the next serial number to be assigned to an item at this station
-		size_t s_inStock{}; //the number of items currently in stock
+		size_t s_nextSerialNo{ 0 }; //the next serial number to be assigned to an item at this station
+		size_t s_numInStock{ 0 }; //the number of items currently in stock
 		static size_t m_widthField; // the maximum number of characters required to print to the screen
 		static size_t id_generator; //a variable used to generate IDs for new instances of type Station
 	public:
