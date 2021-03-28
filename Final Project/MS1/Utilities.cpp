@@ -13,6 +13,8 @@
 #include "Utilities.h"
 
 namespace sdds {
+	char Utilities::m_delimiter = ','; //just for initialization
+
 	void Utilities::setFieldWidth(size_t newWidth) {
 		m_widthField = newWidth;
 	}
