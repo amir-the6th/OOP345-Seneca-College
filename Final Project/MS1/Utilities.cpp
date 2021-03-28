@@ -30,8 +30,12 @@ namespace sdds {
 		   representing a non-position. It's returned by method "find" when 
 		   the pattern was not found.
 		*/
-		if (next_pos != string::npos) { //found
-			str.substr(first_pos, next_pos - first_pos);
+		if (first_pos == next_pos) {
+			more = false;
+			throw "No token found!";
+		}
+		else if (next_pos != string::npos) { //found
+			token = str.substr(first_pos, next_pos - first_pos);
 
 			//m_widthField = m_widthField < token.length() ? token.length() : m_widthField;
 			m_widthField = std::max(token.length(), m_widthField); //std::max returns the largest of token.length() and 
@@ -42,10 +46,6 @@ namespace sdds {
 			token = str.substr(first_pos);
 			m_widthField = std::max(token.length(), m_widthField);
 			more = false;
-		}
-		else { //first_pos == next_pos
-			more = false;
-			throw "No token found!";
 		}
 		next_pos++;
 		return token;
