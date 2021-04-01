@@ -24,8 +24,6 @@ namespace sdds {
 				}
 			}
 		}
-
-
 		return priceList;
 	}
 }
