@@ -16,7 +16,7 @@ namespace sdds {
 		//         using raw pointers
 		for (size_t i = 0; i < desc.size(); i++) {
 			for (size_t j = 0; j < price.size(); j++) {
-				if (desc[i].code == price[i].code) {
+				if (desc[i].code == price[j].code) {
 					Product* p = new Product(desc[i].desc, price[j].price);
 					p->validate(); //call validate() function in Element.h to check the validity of the price
 					priceList += p; //call += operator overload in List.h
