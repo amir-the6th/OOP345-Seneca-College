@@ -52,7 +52,9 @@ namespace sdds {
 
 		// TODO: Overload the += operator with a smart pointer
 		//       as a second operand.
-
+		void operator+=(std::unique_ptr<T>& obj) {
+			list.push_back(*obj);
+		}
 
 		void display(std::ostream& os) const {
             os << std::fixed << std::setprecision(2);
