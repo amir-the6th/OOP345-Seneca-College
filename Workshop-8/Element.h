@@ -1,3 +1,16 @@
+/********************************************
+///    Name:        Amirhossein Sabagh    ///
+///    Student#:    152956199             ///
+///    Email:       asabagh@myseneca.ca   ///
+///    Date:        2021-03-31            ///
+|*******************************************|
+|*********  Workshop 8 - part 1&2  *********|
+|*******************************************|
+|   I have done all the coding by myself    |
+|     and only copied the code that my      |
+|     professor provided to complete my     |
+|        workshops and assignments.         |
+********************************************/
 // Workshop 8 - Smart Pointers
 // 2019/11 - Cornel
 
@@ -82,6 +95,11 @@ namespace sdds {
 		}
 
 		// TODO: add a function here to validate the price
+		void validate() {
+			if (this->m_price < 0.0) {
+				throw std::string("Invalid price!");
+			}
+		}
 
 		void display(std::ostream& os) const {
 			os << std::setw(FWD) << m_desc
