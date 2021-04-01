@@ -26,4 +26,13 @@ namespace sdds {
 		}
 		return priceList;
 	}
+
+	List<Product> mergeSmart(const List<Description>& desc, const List<Price>& price) {
+		List<Product> priceList;
+		// TODO: Add your code here to build a list of products
+		//         using smart pointers
+
+
+		return priceList;
+	}
 }

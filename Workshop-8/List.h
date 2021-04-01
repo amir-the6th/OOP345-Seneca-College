@@ -1,3 +1,16 @@
+/********************************************
+///    Name:        Amirhossein Sabagh    ///
+///    Student#:    152956199             ///
+///    Email:       asabagh@myseneca.ca   ///
+///    Date:        2021-03-31            ///
+|*******************************************|
+|*********  Workshop 8 - part 1&2  *********|
+|*******************************************|
+|   I have done all the coding by myself    |
+|     and only copied the code that my      |
+|     professor provided to complete my     |
+|        workshops and assignments.         |
+********************************************/
 #ifndef SDDS_LIST_H
 #define SDDS_LIST_H
 // Workshop 8 - Smart Pointers
@@ -36,6 +49,10 @@ namespace sdds {
 		void operator+=(const T* obj) {
 			list.push_back(*obj);
 		}
+
+		// TODO: Overload the += operator with a smart pointer
+		//       as a second operand.
+
 
 		void display(std::ostream& os) const {
             os << std::fixed << std::setprecision(2);
