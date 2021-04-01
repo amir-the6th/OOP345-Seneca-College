@@ -29,8 +29,12 @@
     <ClCompile Include="Utilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="w8_p1.cpp">
+    <ClCompile Include="w8_p2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="sample_output-p1.txt" />
+    <Text Include="sample_output-p2.txt" />
   </ItemGroup>
 </Project>
