@@ -37,8 +37,8 @@ namespace sdds {
 		CustomerOrder(const std::string& str);
 		CustomerOrder(const CustomerOrder&);
 		CustomerOrder& operator=(const CustomerOrder&) = delete;
-		CustomerOrder(const CustomerOrder&&) noexcept;
-		CustomerOrder& operator=(const CustomerOrder&&) noexcept;
+		CustomerOrder(CustomerOrder&&) noexcept;
+		CustomerOrder& operator=(CustomerOrder&&) noexcept;
 		~CustomerOrder();
 		bool isFilled() const;
 		bool isItemFilled(const std::string& itemName) const;
