@@ -1,0 +1,17 @@
+/********************************************
+///    Name:        Amirhossein Sabagh    ///
+///    Student#:    152956199             ///
+///    Email:       asabagh@myseneca.ca   ///
+///    Date:        2021-04-10            ///
+|*******************************************|
+|*********  Workshop 9 - Reflection ********|
+|*******************************************|
+|   I have done all the coding by myself    |
+|     and only copied the code that my      |
+|     professor provided to complete my     |
+|        workshops and assignments.         |
+********************************************/
+For this workshop, I received a text file as the input and saved the encoded output in a binary file. The reason for this is that text files are used for maintaining textual information while binary files contain bytes or compiled version of a text file. In this workshop, the binary file was used to maintain our encrypted information. Another reason for using binary files over text files for saving the encrypted information is that a text file can be edited and the small errors can get eliminated, while an error in the binary file corrupts the file. As binary files are not human readable, it adds to the security of the information stored in them. I used some member functions including read(), write(), and close() to deal with the binary file.
+As stated in the definition of the thread template, when constructing it, we should pass the type of a function, function objects, or lambda expression as the first argument and add the optional arguments of the functions as the next arguments of the constructor. In order to do that for the converter() function, we could have declared a functor but using std::bind helps us to be more concise and easily readable.
+The advantage of using multiple threads lies in the boost of speed it brings to the program. For encrypting a long text file, we can call the converter function to go through the characters of the file (1974 bytes) and encrypt them one by one. But instead, by receiving help from multiple threading, I divided the text file into four smaller chunks and did the encryption of them simultaneously. I declared a vector of type std::thread and pushed four threads that each were responsible for the conversion of their text chunk. In the end, I looped through the vector and joined them.
+
