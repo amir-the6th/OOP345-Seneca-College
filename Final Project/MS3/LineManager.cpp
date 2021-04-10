@@ -33,14 +33,13 @@ namespace sdds {
 			}
 		}
 	}
-	void LineManager::linkStations()
-	{
+	void LineManager::linkStations() {
 	}
-	bool LineManager::run(std::ostream& os)
-	{
+	bool LineManager::run(std::ostream& os) {
+		static size_t count{ 0 };
+		os << "Line Manager Iteration: " << ++count << std::endl;
 		return false;
 	}
-	void LineManager::display(std::ostream& os) const
-	{
+	void LineManager::display(std::ostream& os) const {
 	}
 }

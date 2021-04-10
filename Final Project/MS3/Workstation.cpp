@@ -29,7 +29,8 @@ namespace sdds {
 	}
 	void Workstation::setNextStation(Workstation* station) {
 		//this modifier stores the address of the referenced Workstation object in the pointer to the m_pNextStation
-		m_pNextStation = (Workstation *)&station;
+		m_pNextStation = station;
+		//m_pNextStation = (Workstation *)&station;
 	}
 	Workstation* Workstation::getNextStation() const {
 		// returns the address of next Workstation
