@@ -1,3 +1,16 @@
+/********************************************
+///    Name:        Amirhossein Sabagh    ///
+///    Student#:    152956199             ///
+///    Email:       asabagh@myseneca.ca   ///
+///    Date:        2021-04-10            ///
+|*******************************************|
+|*********  Workshop 9 - part 1&2  *********|
+|*******************************************|
+|   I have done all the coding by myself    |
+|     and only copied the code that my      |
+|     professor provided to complete my     |
+|        workshops and assignments.         |
+********************************************/
 // Workshop 9 - Multi-Threading
 // SecureData.cpp
 
@@ -6,7 +19,9 @@
 #include <string>
 #include <thread>
 #include <functional>
+#include <vector>
 #include "SecureData.h"
+#define THREADS 4
 
 using namespace std;
 
@@ -65,9 +80,17 @@ namespace w9 {
 	{
 		// TODO (at-home): rewrite this function to use at least four threads
 		//         to encrypt/decrypt the text.
-		converter(text, key, nbytes, Cryptor());
 
+		/*converter(text, key, nbytes, Cryptor());*/
 
+		std::vector<std::thread> threads;
+		int portion{ nbytes / THREADS };
+
+		for (size_t i = 0; i < THREADS; i++)
+			threads.push_back(std::thread(std::bind(converter, text + i * portion, key, i + 1 < THREADS ? portion : (nbytes - i * portion), Cryptor())));
+
+		for (auto& thread : threads)
+			thread.join();
 
 		encoded = !encoded;
 	}
@@ -80,22 +103,24 @@ namespace w9 {
 		else
 		{
 			// TODO: open a binary file for writing
-
+			fstream output(file, std::ios::out | std::ios::binary);
 
 			// TODO: write data into the binary file
 			//         and close the file
+			output.write(text, nbytes);
+			output.close();
 		}
 	}
 
 	void SecureData::restore(const char* file, char key) {
 		// TODO: open binary file for reading
-
+		fstream input(file, std::ios::in | std::ios::binary);
 
 		// TODO: - allocate memory here for the file content
-
+		char* temp = new char[nbytes];
 
 		// TODO: - read the content of the binary file
-
+		input.read(temp, nbytes);
 
 		*ofs << "\n" << nbytes << " bytes copied from binary file "
 			<< file << " into memory.\n";
