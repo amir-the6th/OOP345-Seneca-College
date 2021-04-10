@@ -1,3 +1,16 @@
+/********************************************
+///    Name:        Amirhossein Sabagh    ///
+///    Student#:    152956199             ///
+///    Email:       asabagh@myseneca.ca   ///
+///    Date:        2021-04-10            ///
+|*******************************************|
+|*********  Workshop 9 - part 1&2  *********|
+|*******************************************|
+|   I have done all the coding by myself    |
+|     and only copied the code that my      |
+|     professor provided to complete my     |
+|        workshops and assignments.         |
+********************************************/
 // Workshop 9 - Multi-Threading
 // SecureData.h
 #ifndef W9_SECUREDATA_H
