@@ -68,7 +68,7 @@ namespace sdds {
 			os << getItemName() << " --> " << m_pNextStation->getItemName() << std::endl;
 		}
 		else {
-			os << getItemName() << " --> " << "End Of Line" << std::endl;
+			os << getItemName() << " --> " << "End of line" << std::endl;
 		}
 	}
 	Workstation& Workstation::operator+=(CustomerOrder&& newOrder) {
