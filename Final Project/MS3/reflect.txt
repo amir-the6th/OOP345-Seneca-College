@@ -1,0 +1,14 @@
+/********************************************
+///    Name:        Amirhossein Sabagh    ///
+///    Student#:    152956199             ///
+///    Email:       asabagh@myseneca.ca   ///
+///    Date:        2021-04-13            ///
+|*******************************************|
+|**********  Final Project - MS3  **********|
+|*******************************************|
+|    I confirm that I have done all the     |
+|    coding by myself and that I am the     |
+//       only author of this file.	    |
+********************************************/
+
+I want to use this opportunity to thank you for teaching us advanced C++. I remember the first day of this semester when I asked you about the hardship of learning about the STL library. Time has passed and now, at the end of the course, I have become proficient to some point with vectors, algorithms, and so forth. Thank you for that.
