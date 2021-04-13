@@ -2,7 +2,7 @@
 ///    Name:        Amirhossein Sabagh    ///
 ///    Student#:    152956199             ///
 ///    Email:       asabagh@myseneca.ca   ///
-///    Date:        2021-04-10            ///
+///    Date:        2021-04-13            ///
 |*******************************************|
 |**********  Final Project - MS3  **********|
 |*******************************************|
@@ -13,8 +13,8 @@
 #ifndef SDDS_WORKSTATION_H
 #define SDDS_WORKSTATION_H
 #include <deque>
-#include "CustomerOrder.h"
 #include "Station.h"
+#include "CustomerOrder.h"
 
 namespace sdds {
 	extern std::deque<CustomerOrder> pending; //holds the orders to be placed onto the assembly line at the first station
