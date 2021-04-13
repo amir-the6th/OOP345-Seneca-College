@@ -66,12 +66,12 @@ namespace sdds {
 		std::vector<Workstation*> local;
 		while (elem != nullptr) {
 			local.push_back(elem);
-			elem = elem->getNextStation();
+			elem = (Workstation*)elem->getNextStation();
 		}
 		activeLine = local;*/
 
 		for (size_t i = activeLine.size(); i > 0; i--) {
-			Workstation* elem = activeLine[i];
+			Workstation* elem{ activeLine[i] };
 			for (size_t j = 0; j < i; j++) {
 				if (elem == activeLine[j]->getNextStation()) {
 					std::swap(activeLine[i - 1], activeLine[j]);
