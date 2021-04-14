@@ -73,7 +73,7 @@ namespace sdds {
 		for (size_t i = activeLine.size(); i > 0; i--) {
 			Workstation* elem{ activeLine[i] };
 			for (size_t j = 0; j < i; j++) {
-				if (elem == activeLine[j]->getNextStation()) {
+				if (elem == (Workstation*)activeLine[j]->getNextStation()) {
 					std::swap(activeLine[i - 1], activeLine[j]);
 				}
 			}
