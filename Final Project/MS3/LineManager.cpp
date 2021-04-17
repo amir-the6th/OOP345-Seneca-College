@@ -14,6 +14,7 @@
 #include <string>
 #include <fstream>
 #include <algorithm>
+#include <set>
 #include "LineManager.h"
 #include "Utilities.h"
 
@@ -24,6 +25,7 @@ namespace sdds {
 		std::string line{}, item{}, nextItem{};
 		size_t next_pos{ 0 };
 		bool more{ false };
+		std::set<std::string> col1Records, col2Records, diff;
 		
 		if (!f) {
 			throw std::string("Err: Unable to open the file!");
@@ -32,12 +34,9 @@ namespace sdds {
 			while (std::getline(f, line)) {
 				if (!line.empty()) {
 					item = token.extractToken(line, next_pos, more);
-					if (more) {
-						nextItem = token.extractToken(line, next_pos, more);
-					}
-					else {
-						nextItem = "";
-					}
+					col1Records.insert(item);
+					nextItem = !more ? "" : token.extractToken(line, next_pos, more), col2Records.insert(nextItem);
+
 					for (auto st1 : stations) {
 						if (item == st1->getItemName()) {
 							if (!nextItem.empty()) {
@@ -53,31 +52,34 @@ namespace sdds {
 				}
 			}
 			f.close();
-			m_firstStation = activeLine.front();
+			//m_firstStation = activeLine.front();
+			std::set_difference(col1Records.begin(), col1Records.end(),
+				col2Records.begin(), col2Records.end(),
+				std::inserter(diff, diff.end()));
+			auto it = find_if(stations.begin(), stations.end(), [diff](const Workstation* st)
+				{ return st->getItemName() == (*diff.begin()); });
+			m_firstStation = *it; 
+
 			m_cntCustomerOrder = pending.size();
 		}
 	}
 	void LineManager::linkStations() {
-		/*this modifier reorders the workstations present in the instance variable activeLine(loaded by the constructor) 
-		and stores the reordered collection in the same instance variable.The elements in the reordered collection start 
-		with the first station, proceeds to the next, and so forth until the end of the line.*/
-
-		/*Workstation* elem{ m_firstStation };
+		Workstation* it = m_firstStation;
 		std::vector<Workstation*> local;
-		while (elem != nullptr) {
-			local.push_back(elem);
-			elem = (Workstation*)elem->getNextStation();
+		while (it) {
+			local.push_back(it);
+			it = it->getNextStation();
 		}
-		activeLine = local;*/
+		activeLine = local;
 
-		for (size_t i = activeLine.size(); i > 0; i--) {
-			Workstation* elem{ activeLine[i] };
-			for (size_t j = 0; j < i; j++) {
-				if (elem == (Workstation*)activeLine[j]->getNextStation()) {
-					std::swap(activeLine[i - 1], activeLine[j]);
-				}
-			}
-		}
+		//for (size_t i = activeLine.size(); i > 0; i--) {
+		//	Workstation* elem{ activeLine[i] };
+		//	for (size_t j = 0; j < i; j++) {
+		//		if (elem == (Workstation*)activeLine[j]->getNextStation()) {
+		//			std::swap(activeLine[i - 1], activeLine[j]);
+		//		}
+		//	}
+		//}
 	}
 	bool LineManager::run(std::ostream& os) {
 		static size_t count{ 0 };
